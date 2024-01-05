@@ -1,6 +1,6 @@
 astradb:
   database-id: ${ASTRADB_DATABASE_ID}
-  region: us-east2
+  region: us-east-2
   keyspace: pdfassistant
   table: pdfchat
 
