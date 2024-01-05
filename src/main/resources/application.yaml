@@ -1,0 +1,10 @@
+astradb:
+  database-id: ${ASTRADB_DATABASE_ID}
+  region: us-east2
+  keyspace: pdfassistant
+  table: pdfchat
+  access-token: ${ASTRADB_ACCESS_TOKEN}
+
+embedding:
+  model:
+    dimension: 384
