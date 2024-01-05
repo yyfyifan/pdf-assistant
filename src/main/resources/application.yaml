@@ -12,3 +12,6 @@ embedding:
 access-token:
   openai-token: ${OPENAI_ACCESS_TOKEN}
   astradb-token: ${ASTRADB_ACCESS_TOKEN}
+
+server:
+  port: 8080

@@ -1,4 +1,4 @@
-package dev.yangyifan.pdfassistant;
+package dev.yangyifan.pdfassistant.document;
 
 import dev.langchain4j.data.document.parser.apache.pdfbox.ApachePdfBoxDocumentParser;
 import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
@@ -11,13 +11,16 @@ import java.nio.file.Path;
 
 import static dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocument;
 
+/**
+ * Ingests PDF documents either from local resources or (in future) dynamically via web API
+ */
 @Component
 public class DocumentLoader {
     private final EmbeddingStoreIngestor ingestor;
     private final ResourceLoader resourceLoader;
 
     public DocumentLoader(EmbeddingStoreIngestor ingestor,
-                                   ResourceLoader resourceLoader) {
+                          ResourceLoader resourceLoader) {
         this.ingestor = ingestor;
         this.resourceLoader = resourceLoader;
     }
@@ -34,7 +37,7 @@ public class DocumentLoader {
                 new ApachePdfBoxDocumentParser()));
     }
 
-    private Path getPathForResource(String fileName)  {
+    private Path getPathForResource(String fileName) {
         try {
             return Path.of(resourceLoader.getResource("classpath:" + fileName).getURI());
         } catch (IOException e) {
